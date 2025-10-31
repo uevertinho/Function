@@ -5,6 +5,7 @@ import util.UpperCaseName;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Program {
@@ -22,9 +23,11 @@ public class Program {
         //por isso convertemos para stream : list.stream()
         //depois convertendo a stream para list de novo : collect(Collectors.toList()
         //reference method com metodo estático
-        //Product::nonStaticUpperCaseName vai aplicar
-        //o metodo nao estático a cada elemento da lista
-        List<String> names = list.stream().map(Product::nonStaticUpperCaseName).collect(Collectors.toList());
+
+        //expressão lambda declarada
+        Function<Product, String> func = p -> p.getName().toUpperCase();
+
+        List<String> names = list.stream().map(func).collect(Collectors.toList());
 
         names.forEach(System.out::println);
 
