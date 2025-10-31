@@ -21,7 +21,9 @@ public class Program {
         //o map só funciona para stream, e não para list
         //por isso convertemos para stream : list.stream()
         //depois convertendo a stream para list de novo : collect(Collectors.toList()
-        List<String> names = list.stream().map(new UpperCaseName()).collect(Collectors.toList());
+        //reference method com metodo estático
+        //Product::staticUpperCaseName vai aplicar o metodo estático a cada elemento da lista
+        List<String> names = list.stream().map(Product::staticUpperCaseName).collect(Collectors.toList());
 
         names.forEach(System.out::println);
 
