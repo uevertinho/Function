@@ -22,8 +22,9 @@ public class Program {
         //por isso convertemos para stream : list.stream()
         //depois convertendo a stream para list de novo : collect(Collectors.toList()
         //reference method com metodo estático
-        //Product::staticUpperCaseName vai aplicar o metodo estático a cada elemento da lista
-        List<String> names = list.stream().map(Product::staticUpperCaseName).collect(Collectors.toList());
+        //Product::nonStaticUpperCaseName vai aplicar
+        //o metodo nao estático a cada elemento da lista
+        List<String> names = list.stream().map(Product::nonStaticUpperCaseName).collect(Collectors.toList());
 
         names.forEach(System.out::println);
 
